@@ -1,35 +1,38 @@
+package Enemies;
+import FixedGameElements.Board;
 
+import java.util.Random;
 
-public class CarPurple extends Enemy {
+public class CarOrange extends Enemy {
 	private int DOT_SIZE = 15;
-
+	Random random = new Random();
 	private int direction =0; //0->vers la droite/1-> vers la gauche
-	private int speed = 5;
+	private int speed = DOT_SIZE;
 
-	public CarPurple(int posX, int posY, int d) {
+	public CarOrange(int posX, int posY, int d) {
 		super(posX, posY);
 		direction = d;
 	}
 
 	public static String getPathToImage(){
-		return "carPurple.png";
+		return "Textures/carOrange.png";
 	}
 	public String getType(){
-		return "carPurple";	
+		return "carOrange";	
 	}
 	public void triggerAction(Board board){
 		board.decreaseLivesAmount(1);
 	}
-//la voiture ralenti quand le player ramasse les pieces
-	public void moveCar(int playerX, int playerY, int borderSize, int coins){
+//la voiture change sa vitesse au hasard
+	public void moveCar(int playerX, int playerY, int borderSize){
 		
 		//move car
 		if (direction==0) {//vers droite
 			super.setPosX(super.getPosX()+speed/2);
 		}else{//vers gauche
 			super.setPosX(super.getPosX()-speed/2);
-		} 
-		changeSpeed(coins);
+		}
+		changeSpeed();
 		checkBorders(borderSize);
 	}
 	private void checkBorders(int borderSize){
@@ -42,13 +45,8 @@ public class CarPurple extends Enemy {
         	super.setPosX(borderSize - DOT_SIZE);	        
         }
 	}
-	private void changeSpeed(int coins){
-		if (coins<1) {
-			speed=20;
-		}else if(coins<3){
-			speed = 15;
-		}else if(coins<5){
-			speed = 10;
-		}
+	private void changeSpeed(){
+		int rndSpeed = random.nextInt(35 - 5) + 5;
+		speed = rndSpeed;
 	}
 }

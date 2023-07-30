@@ -1,4 +1,7 @@
+package Collectables;
 
+import FixedGameElements.Board;
+import FixedGameElements.FixedGameElement;
 
 public class Pill extends FixedGameElement {
 	//la duree de god mode
@@ -8,7 +11,7 @@ public class Pill extends FixedGameElement {
 	}
 
 	public static String getPathToImage(){
-		return "pill.png";
+		return "Textures/pill.png";
 	}
 	public String getType(){
 		return "pill";	

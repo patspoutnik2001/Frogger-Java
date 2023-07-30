@@ -1,5 +1,4 @@
-
-
+package FixedGameElements;
 public abstract class Terrain  {
 	private int pos_y;
 

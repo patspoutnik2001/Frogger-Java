@@ -1,3 +1,8 @@
+package FixedGameElements;
+import Collectables.Coin;
+import Collectables.Pill;
+import Enemies.*;
+
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -12,6 +17,7 @@ import java.awt.event.KeyEvent;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 import javax.swing.Timer;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Random;
@@ -122,19 +128,19 @@ public class Board extends JPanel implements ActionListener {
 		ImageIcon iii3 = new ImageIcon(Insect.getPathToImage(2));
 		fixedGameElementImageMap.put("insect3", iii3);
 
-        	ImageIcon iif = new ImageIcon("frog.png");
-        	frog = iif.getImage();
-			ImageIcon iifg = new ImageIcon("frogGod.png");
-        	frogGod = iifg.getImage();
-			ImageIcon iih = new ImageIcon("hole.png");
-			hole = iih.getImage();
+		ImageIcon iif = new ImageIcon("Textures/frog.png");
+		frog = iif.getImage();
+		ImageIcon iifg = new ImageIcon("Textures/frogGod.png");
+		frogGod = iifg.getImage();
+		ImageIcon iih = new ImageIcon("Textures/hole.png");
+		hole = iih.getImage();
 			
 
 		ImageIcon iip =new ImageIcon(Pill.getPathToImage());
 		fixedGameElementImageMap.put("pill", iip);
 
-		ImageIcon iirc = new ImageIcon(CarRed.getPathToImage());
-		enemysImageMap.put("carRed", iirc);
+		//ImageIcon iirc = new ImageIcon(CarRed.getPathToImage());
+		//enemysImageMap.put("carRed", iirc);
 		
 		ImageIcon iibc = new ImageIcon(CarBlue.getPathToImage());
 		enemysImageMap.put("carBlue", iibc);
@@ -275,7 +281,7 @@ public class Board extends JPanel implements ActionListener {
 		}
 		for (int i = 0 ; i< currentLevel[6] ; i++) {
 			int randDir = random.nextInt(2 - 0) + 0;
-			enemys.add(new CarRed(getRandomCoordinate(),getRandomOnRoadAndWaterCoordinate(0)));
+			//enemys.add(new CarRed(getRandomCoordinate(),getRandomOnRoadAndWaterCoordinate(0)));
 			enemys.add(new CarBlue(getRandomCoordinate(),getRandomOnRoadAndWaterCoordinate(0),randDir));
 			enemys.add(new CarOrange(getRandomCoordinate(),getRandomOnRoadAndWaterCoordinate(0),randDir));
 			enemys.add(new CarPurple(getRandomCoordinate(),getRandomOnRoadAndWaterCoordinate(0),randDir));

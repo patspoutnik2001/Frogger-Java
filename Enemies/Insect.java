@@ -1,3 +1,6 @@
+package Enemies;
+import FixedGameElements.Board;
+import FixedGameElements.FixedGameElement;
 
 // on herite de FixedGameElement pour une meilleur manipulations dans board
 // on pourrait faire une classe a part
@@ -10,11 +13,11 @@ public class Insect extends FixedGameElement {
 	}
 	public static String getPathToImage(int i){
 		if (i==0) {
-			return "insect1.png";
+			return "Textures/insect1.png";
 		}else if (i==1) {
-			return "insect2.png";
+			return "Textures/insect2.png";
 		} else if(i ==2) {
-			return "insect3.png";
+			return "Textures/insect3.png";
 		}
 		return "insect1.png";
 	}

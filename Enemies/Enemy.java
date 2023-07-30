@@ -1,11 +1,14 @@
+package Enemies;
 
-//cette classe est heritee par tout les elements imobile dans le jeu
-public abstract class FixedGameElement  {
+import FixedGameElements.Board;
+
+//cette classe va etre heritee par tout les voitures
+public abstract class Enemy  {
 	// abstract-> cette classe peut pas etre instancie
 	private int pos_x;
 	private int pos_y;
 
-	public FixedGameElement(int posX, int posY) {
+	public Enemy(int posX, int posY) {
         pos_x=posX;
 		pos_y=posY;
 		

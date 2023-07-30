@@ -1,3 +1,6 @@
+package Enemies;
+import FixedGameElements.Board;
+import FixedGameElements.Terrain;
 
 import java.util.ArrayList;
 
@@ -12,7 +15,7 @@ public class CarRed extends Enemy {
 	}
 
 	public static String getPathToImage(){
-		return "carRed.png";
+		return "Textures/carRed.png";
 	}
 	public String getType(){
 		return "carRed";	

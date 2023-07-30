@@ -1,36 +1,37 @@
+package Enemies;
 
+import FixedGameElements.Board;
 
-public class CarBlue extends Enemy {
+public class CarPurple extends Enemy {
 	private int DOT_SIZE = 15;
 
 	private int direction =0; //0->vers la droite/1-> vers la gauche
-	private int slowerSpeed =DOT_SIZE/2;
+	private int speed = 5;
 
-	public CarBlue(int posX, int posY, int d) {
+	public CarPurple(int posX, int posY, int d) {
 		super(posX, posY);
 		direction = d;
 	}
 
 	public static String getPathToImage(){
-		return "carBlue.png";
+		return "Textures/carPurple.png";
 	}
 	public String getType(){
-		return "carBlue";	
+		return "carPurple";	
 	}
 	public void triggerAction(Board board){
 		board.decreaseLivesAmount(1);
 	}
-//la voiture ralenti quand le player est sur la meme route
-	public void moveCar(int playerX, int playerY, int borderSize){
-		if (super.getPosY() == playerY) { // il se trouve sur la meme route, il ralenti
-			slowerSpeed = DOT_SIZE/4;
-		}
+//la voiture ralenti quand le player ramasse les pieces
+	public void moveCar(int playerX, int playerY, int borderSize, int coins){
+		
 		//move car
 		if (direction==0) {//vers droite
-			super.setPosX(super.getPosX()+slowerSpeed);
+			super.setPosX(super.getPosX()+speed/2);
 		}else{//vers gauche
-			super.setPosX(super.getPosX()-slowerSpeed);
-		}
+			super.setPosX(super.getPosX()-speed/2);
+		} 
+		changeSpeed(coins);
 		checkBorders(borderSize);
 	}
 	private void checkBorders(int borderSize){
@@ -42,5 +43,14 @@ public class CarBlue extends Enemy {
         if (super.getPosX() < 0) {//gauche
         	super.setPosX(borderSize - DOT_SIZE);	        
         }
+	}
+	private void changeSpeed(int coins){
+		if (coins<1) {
+			speed=20;
+		}else if(coins<3){
+			speed = 15;
+		}else if(coins<5){
+			speed = 10;
+		}
 	}
 }

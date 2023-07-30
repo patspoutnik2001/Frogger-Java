@@ -3,6 +3,7 @@ import java.io.File;
 import javax.sound.sampled.*;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import FixedGameElements.Board;
 
 public class Frogger extends JFrame {
 
@@ -21,7 +22,7 @@ public class Frogger extends JFrame {
         setTitle("Frogger");
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        playMusic("8bit_song_free_use.wav");
+        playMusic("Media/8bit_song_free_use.wav");
     }
 //methode pour mettre la musique
     public static void playMusic(String file_path){

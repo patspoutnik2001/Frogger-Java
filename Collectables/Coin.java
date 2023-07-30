@@ -1,9 +1,14 @@
+package Collectables;
+
+import FixedGameElements.Board;
+import FixedGameElements.FixedGameElement;
+
 public class Coin extends FixedGameElement {
 	public Coin(int posX, int posY) {
 		super(posX, posY);
 	}
 	public static String getPathToImage(){
-		return "coin.png";
+		return "Textures/coin.png";
 	}
 	public String getType(){
 		return "coin";	

@@ -1,35 +1,37 @@
-import java.util.Random;
+package Enemies;
+import FixedGameElements.Board;
 
-public class CarOrange extends Enemy {
+public class CarBlue extends Enemy {
 	private int DOT_SIZE = 15;
-	Random random = new Random();
-	private int direction =0; //0->vers la droite/1-> vers la gauche
-	private int speed = DOT_SIZE;
 
-	public CarOrange(int posX, int posY, int d) {
+	private int direction =0; //0->vers la droite/1-> vers la gauche
+	private int slowerSpeed =DOT_SIZE/2;
+
+	public CarBlue(int posX, int posY, int d) {
 		super(posX, posY);
 		direction = d;
 	}
 
 	public static String getPathToImage(){
-		return "carOrange.png";
+		return "Textures/carBlue.png";
 	}
 	public String getType(){
-		return "carOrange";	
+		return "carBlue";	
 	}
 	public void triggerAction(Board board){
 		board.decreaseLivesAmount(1);
 	}
-//la voiture change sa vitesse au hasard
+//la voiture ralenti quand le player est sur la meme route
 	public void moveCar(int playerX, int playerY, int borderSize){
-		
+		if (super.getPosY() == playerY) { // il se trouve sur la meme route, il ralenti
+			slowerSpeed = DOT_SIZE/4;
+		}
 		//move car
 		if (direction==0) {//vers droite
-			super.setPosX(super.getPosX()+speed/2);
+			super.setPosX(super.getPosX()+slowerSpeed);
 		}else{//vers gauche
-			super.setPosX(super.getPosX()-speed/2);
+			super.setPosX(super.getPosX()-slowerSpeed);
 		}
-		changeSpeed();
 		checkBorders(borderSize);
 	}
 	private void checkBorders(int borderSize){
@@ -41,9 +43,5 @@ public class CarOrange extends Enemy {
         if (super.getPosX() < 0) {//gauche
         	super.setPosX(borderSize - DOT_SIZE);	        
         }
-	}
-	private void changeSpeed(){
-		int rndSpeed = random.nextInt(35 - 5) + 5;
-		speed = rndSpeed;
 	}
 }

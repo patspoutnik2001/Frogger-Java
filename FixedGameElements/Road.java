@@ -1,5 +1,4 @@
-
-
+package FixedGameElements;
 public class Road extends Terrain {
 
 	public Road(int posY) {
@@ -7,7 +6,7 @@ public class Road extends Terrain {
 	}
 
 	public static String getPathToImage(){
-		return "road.png";
+		return "Textures/road.png";
 	}
 	public String getType(){
 		return "road";	
